@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Pronote Personnalisé</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>📘 Mon Pronote Personnalisé</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showDashboard()">🏠 Tableau de bord</a></li>
+        <li><a href="#" onclick="showEleves()">👥 Élèves</a></li>
+        <li><a href="#" onclick="showProfesseurs()">👨‍🏫 Professeurs</a></li>
+        <li><a href="#" onclick="showEmploiDuTemps()">📆 Emploi du temps</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <section id="dashboard">
+      <h2>Tableau de bord</h2>
+      <p>Bienvenue dans votre espace de gestion scolaire !</p>
+    </section>
+
+    <section id="eleves" style="display:none;">
+      <h2>Liste des Élèves</h2>
+      <!-- Liste des élèves dynamique -->
+    </section>
+
+    <section id="professeurs" style="display:none;">
+      <h2>Liste des Professeurs</h2>
+      <!-- Liste des professeurs dynamique -->
+    </section>
+
+    <section id="emploi-du-temps" style="display:none;">
+      <h2>Emploi du temps</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour</th>
+            <th>Heure</th>
+            <th>Matière</th>
+          </tr>
+        </thead>
+        <tbody id="emplois">
+          <!-- Emploi du temps dynamique -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mon Pronote Personnalisé</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

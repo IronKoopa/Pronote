@@ -1,0 +1,105 @@
+const eleves = [
+  { nom: "Durand", prenom: "Paul", classe: "6A" },
+  { nom: "Lemoine", prenom: "Marie", classe: "5B" },
+  { nom: "Morel", prenom: "Jacques", classe: "4C" },
+];
+
+const professeurs = [
+  { nom: "Dupont", prenom: "Jean", matiere: "Mathématiques" },
+  { nom: "Leclerc", prenom: "Sophie", matiere: "Français" },
+  { nom: "Martin", prenom: "Luc", matiere: "Sciences" },
+];
+
+const emploiDuTemps = [
+  { jour: "Lundi", heure: "08:00", matiere: "Mathématiques" },
+  { jour: "Lundi", heure: "10:00", matiere: "Français" },
+  { jour: "Mardi", heure: "08:00", matiere: "Sciences" },
+];
+
+function showDashboard() {
+  document.getElementById("main-content").style.display = "block";
+  document.getElementById("eleves").style.display = "none";
+  document.getElementById("professeurs").style.display = "none";
+  document.getElementById("emploi-du-temps").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+}
+
+function showEleves() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("professeurs").style.display = "none";
+  document.getElementById("emploi-du-temps").style.display = "none";
+  document.getElementById("eleves").style.display = "block";
+  afficherEleves();
+}
+
+function showProfesseurs() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("eleves").style.display = "none";
+  document.getElementById("emploi-du-temps").style.display = "none";
+  document.getElementById("professeurs").style.display = "block";
+  afficherProfesseurs();
+}
+
+function showEmploiDuTemps() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("eleves").style.display = "none";
+  document.getElementById("professeurs").style.display = "none";
+  document.getElementById("emploi-du-temps").style.display = "block";
+  afficherEmploiDuTemps();
+}
+
+function afficherEleves() {
+  const table = document.createElement("table");
+  table.innerHTML = `
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Classe</th>
+    </tr>
+  `;
+  eleves.forEach(eleve => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${eleve.nom}</td>
+      <td>${eleve.prenom}</td>
+      <td>${eleve.classe}</td>
+    `;
+    table.appendChild(row);
+  });
+  document.getElementById("eleves").appendChild(table);
+}
+
+function afficherProfesseurs() {
+  const table = document.createElement("table");
+  table.innerHTML = `
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Matière</th>
+    </tr>
+  `;
+  professeurs.forEach(prof => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${prof.nom}</td>
+      <td>${prof.prenom}</td>
+      <td>${prof.matiere}</td>
+    `;
+    table.appendChild(row);
+  });
+  document.getElementById("professeurs").appendChild(table);
+}
+
+function afficherEmploiDuTemps() {
+  const tbody = document.getElementById("emplois");
+  tbody.innerHTML = ""; // Reset
+  emploiDuTemps.forEach(emploi => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${emploi.jour}</td>
+      <td>${emploi.heure}</td>
+      <td>${emploi.matiere}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
